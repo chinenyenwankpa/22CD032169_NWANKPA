@@ -1,4 +1,4 @@
-Name: Your Full Name
-Matric number: YOUR_MATRIC_NUMBER
-Live URL: https://<your-deployed-app-url>
-GitHub repo: https://github.com/<your-username>/<LLM_QA_Project_yourName_matricNo>
+Name: Nwankpa Chinenye Peace
+Matric number: 22CD032169
+Live URL: https://two2cd032169-nwankpa.onrender.com
+GitHub repo: https://github.com/chinenyenwankpa/22CD032169_NWANKPA/tree/main
