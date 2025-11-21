@@ -1,31 +1,21 @@
+from flask import Flask, render_template, request
+import os
+
+# Create the Flask app
+app = Flask(__name__)
+
+# ---------- Routes ----------
+@app.route("/", methods=["GET"])
+def home():
+    return render_template("index.html")
+
 @app.route("/ask", methods=["GET", "POST"])
 def ask():
-    if request.method == "GET":
-        return render_template("index.html",
-                               processed=None,
-                               raw_response=None,
-                               answer=None,
-                               original=None)
+    if request.method == "POST":
+        # your logic here
+        return "Message received"
+    return render_template("ask.html")
 
-    q = request.form.get("question", "").strip()
-    if not q:
-        return render_template("index.html",
-                               error="Please enter a question.",
-                               processed=None,
-                               raw_response=None,
-                               answer=None,
-                               original=None)
-
-    provider = request.form.get("provider") or os.environ.get("PROVIDER", "openai")
-    result = ask_llm(q, provider=provider)
-
-    processed = result.get("processed")
-    raw = result.get("raw_response")
-    answer = result.get("answer")
-
-    return render_template("index.html",
-                           original=processed.get("original"),
-                           processed=processed,
-                           raw_response=raw,
-                           answer=answer,
-                           provider=provider)
+# ---------- Run app ----------
+if __name__ == "__main__":
+    app.run(debug=True)
