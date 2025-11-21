@@ -1,52 +1,38 @@
-<!-- templates/index.html -->
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>LLM Q&A Web GUI</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <meta charset="UTF-8">
+    <title>LLM Q&A System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-  <main class="container">
-    <h1>LLM Q&amp;A</h1>
 
-    <form method="post" action="/ask" class="form">
-      <label for="question">Ask a question</label>
-      <textarea id="question" name="question" rows="3" placeholder="Type any natural-language question...">{{ original or '' }}</textarea>
+<div class="container">
+    <h1>LLM Question & Answer System</h1>
 
-      <label for="provider">Provider (optional)</label>
-      <input id="provider" name="provider" placeholder="openai (default) or hf" value="{{ provider or '' }}" />
+    <form method="POST">
+        <label>Ask a Question:</label>
+        <textarea name="question" placeholder="Type any natural-language question..."></textarea>
 
-      <button type="submit">Ask LLM</button>
+        <button type="submit">Ask LLM</button>
     </form>
 
-    {% if error %}
-      <div class="error">{{ error }}</div>
+    {% if processed_question %}
+    <div class="result-box">
+        <div class="result-title">Processed Question:</div>
+        <div class="result-text">{{ processed_question }}</div>
+    </div>
     {% endif %}
 
-    {% if processed %}
-      <section class="card">
-        <h2>Processed Question</h2>
-        <p><strong>Original:</strong> {{ processed.original }}</p>
-        <p><strong>Cleaned:</strong> {{ processed.cleaned }}</p>
-        <p><strong>Tokens:</strong> {{ processed.tokens }}</p>
-      </section>
-
-      <section class="card">
-        <h2>LLM Raw Response</h2>
-        <pre>{{ raw_response }}</pre>
-      </section>
-
-      <section class="card">
-        <h2>Final Answer</h2>
-        <p>{{ answer }}</p>
-      </section>
+    {% if answer %}
+    <div class="result-box">
+        <div class="result-title">Answer:</div>
+        <div class="result-text">{{ answer }}</div>
+    </div>
     {% endif %}
 
-    <footer>
-      <small>Set <code>OPENAI_API_KEY</code> (or <code>HF_API_KEY</code> for HuggingFace) as an environment variable before running.</small>
-    </footer>
-  </main>
+    <div class="footer">Powered by OpenAI API</div>
+</div>
+
 </body>
 </html>

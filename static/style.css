@@ -1,11 +1,114 @@
-/* static/style.css */
-body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background:#f7fafc; color:#111827; margin:0; padding:20px; }
-.container { max-width:860px; margin:0 auto; }
-h1 { margin:8px 0 18px; }
-.form { display:flex; flex-direction:column; gap:8px; margin-bottom:18px; }
-textarea, input { padding:10px; border-radius:8px; border:1px solid #d1d5db; font-size:14px; width:100%; }
-button { padding:10px 16px; border-radius:8px; border:none; background:#2563eb; color:white; font-weight:600; cursor:pointer; }
-.card { background:white; border-radius:10px; padding:12px; box-shadow:0 2px 6px rgba(0,0,0,0.05); margin-bottom:12px; }
-pre { white-space:pre-wrap; word-wrap:break-word; }
-.error { color:#b91c1c; font-weight:600; margin-bottom:12px; }
-footer { margin-top:18px; color:#6b7280; font-size:13px; }
+/* ----- GENERAL PAGE STYLE ----- */
+body {
+    margin: 0;
+    padding: 0;
+    background: #f4f6f8;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ----- CONTAINER ----- */
+.container {
+    width: 90%;
+    max-width: 700px;
+    margin: 60px auto;
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* ----- TITLE ----- */
+h1 {
+    text-align: center;
+    color: #1e293b;
+    margin-bottom: 20px;
+}
+
+/* ----- INPUT LABEL ----- */
+label {
+    font-size: 15px;
+    font-weight: 600;
+    color: #475569;
+}
+
+/* ----- TEXTAREA (QUESTION INPUT) ----- */
+textarea {
+    width: 100%;
+    height: 120px;
+    margin-top: 8px;
+    padding: 14px;
+    font-size: 15px;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    outline: none;
+    resize: none;
+    transition: 0.2s;
+}
+
+textarea:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 4px rgba(59, 130, 246, 0.3);
+}
+
+/* ----- BUTTON ----- */
+button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 14px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #1d4ed8;
+}
+
+/* ----- RESULT BOX ----- */
+.result-box {
+    margin-top: 30px;
+    padding: 20px;
+    background: #f1f5f9;
+    border-radius: 10px;
+    border-left: 4px solid #2563eb;
+}
+
+.result-title {
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #1e293b;
+}
+
+.result-text {
+    color: #334155;
+    font-size: 15px;
+    line-height: 1.5rem;
+}
+
+/* ----- FOOTER ----- */
+.footer {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 13px;
+    color: #64748b;
+}
+
+/* Mobile Responsive */
+@media (max-width: 480px) {
+    .container {
+        padding: 25px;
+        margin-top: 40px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    textarea {
+        height: 100px;
+    }
+}
